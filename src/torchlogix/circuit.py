@@ -260,13 +260,6 @@ class AIGGraph:
                     n1 = n1 // 128
                 delta1_bytes.append(n1)
                 f.write(bytes(delta1_bytes))
-        
-        
-        
-        
-        
-        
-    
 
 
 @dataclass
@@ -451,13 +444,10 @@ class Circuit:
                          output_specs=output_specs, output_shape=list(self.output_shape))
 
   
-    def write_to_aiger_file(self, path="circuit.aig"):
-        
+    def write_to_aiger_file(self, path="circuit.aig"):        
         deliverable = self.to_and_inverter_graph()
-       
-
         deliverable.write_to_aiger_file(path)
-        
+
 
     def __repr__(self) -> str:
         return (
