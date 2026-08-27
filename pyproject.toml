@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torchlogix"
-version = "0.1.1"
+dynamic = ["version"]
 description = "Logic Neural Networks in PyTorch"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -35,6 +35,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+alkaid = [
+    "alkaid>=0.8.1",
+]
 dev = [
     "flake8>=6.1.0",
     "black>=23.12.1",
@@ -57,6 +60,13 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools_scm]
+# Version comes from the latest git tag (e.g. v0.3.0 -> 0.3.0), with a
+# .devN+gHASH suffix for commits after a tag - no version to bump by hand.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
 [tool.black]
 line-length = 88
 target-version = ['py310']
@@ -75,3 +85,6 @@ force_grid_wrap = 0
 use_parentheses = true
 line_length = 88
 skip = ['.git', 'build', 'dist', '*.egg-info']
+
+[project.entry-points."alir_tracer.plugins"]
+logic = "torchlogix._alkaid_plugin:LogicALIRTracer"
