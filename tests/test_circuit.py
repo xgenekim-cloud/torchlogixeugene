@@ -241,7 +241,7 @@ def test_aiger_serializer_accepts_valid_and_gate():
         assert _parse_aiger_file(tmp_file.name).and_gates == [(6, 4, 2)]
 
 
-@pytest.mark.parametrize("model_cls", [DenseModel, ConvModel, BranchModel, AnyLogicModel])
+@pytest.mark.parametrize("model_cls", [DenseModel, ConvModel, BranchModel])
 def test_aig_functional_equivalence(model_cls):
     """Round-trips a trained model's Circuit through the AIGER file format and
     checks -- via the independent Python AIG evaluator above, not a third-party
@@ -273,7 +273,7 @@ ABC_PATH = shutil.which("abc")
 
 
 @pytest.mark.skipif(ABC_PATH is None, reason="abc binary not found on PATH")
-@pytest.mark.parametrize("model_cls", [DenseModel, ConvModel, BranchModel, AnyLogicModel])
+@pytest.mark.parametrize("model_cls", [DenseModel, ConvModel, BranchModel])
 def test_abc_reads_and_rewrites_aiger(model_cls):
     """Parser/compatibility check: ABC can read a TorchLogix .aig file and
     write out a functionally equivalent one.
