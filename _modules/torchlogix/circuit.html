@@ -348,13 +348,6 @@
                     <span class="n">n1</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">//</span> <span class="mi">128</span>
                 <span class="n">delta1_bytes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">delta1_bytes</span><span class="p">))</span>
-        
-        
-        
-        
-        
-        
-    
 
 
 <div class="viewcode-block" id="Circuit">
@@ -546,14 +539,11 @@
   
 <div class="viewcode-block" id="Circuit.write_to_aiger_file">
 <a class="viewcode-back" href="../../api/torchlogix.html#torchlogix.Circuit.write_to_aiger_file">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">write_to_aiger_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"circuit.aig"</span><span class="p">):</span>
-        
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_to_aiger_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"circuit.aig"</span><span class="p">):</span>        
         <span class="n">deliverable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_and_inverter_graph</span><span class="p">()</span>
-       
-
         <span class="n">deliverable</span><span class="o">.</span><span class="n">write_to_aiger_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
 
-        
+
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span>
